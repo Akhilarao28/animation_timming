@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation Timing Functions</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 900px;
+    }
+    
+    .ball-container {
+      position: relative;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+    }
+    
+    .ball {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      padding: 5px;
+    }
+    
+    .indicator {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #ffff00;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    
+    /* Ball colors and positions */
+    .linear {
+      background-color: #e6a5b0;
+    }
+    
+    .ease {
+      background-color: #92b4d3;
+    }
+    
+    .ease-in {
+      background-color: #c1a8d1;
+    }
+    
+    .ease-out {
+      background-color: #e5b1c5;
+    }
+    
+    .ease-in-out {
+      background-color: #e2c0a8;
+    }
+    
+    .steps-1 {
+      background-color: #e5a8a0;
+    }
+    
+    .steps-2 {
+      background-color: #a3c6e0;
+    }
+    
+    /* Animations */
+    @keyframes moveRight {
+      0% { transform: translateX(-35px); }
+      100% { transform: translateX(35px); }
+    }
+    
+    .ball {
+      animation: moveRight 3s infinite alternate;
+    }
+    
+    .linear .indicator {
+      left: 0;
+      top: 50%;
+      animation: moveRight 3s infinite alternate linear;
+    }
+    
+    .ease .indicator {
+      left: 0;
+      top: 50%;
+      animation: moveRight 3s infinite alternate ease;
+    }
+    
+    .ease-in .indicator {
+      right: 0;
+      top: 50%;
+      animation: moveRight 3s infinite alternate ease-in;
+    }
+    
+    .ease-out .indicator {
+      left: 0;
+      top: 50%;
+      animation: moveRight 3s infinite alternate ease-out;
+    }
+    
+    .ease-in-out .indicator {
+      left: 50%;
+      top: 0;
+      animation: moveRight 3s infinite alternate ease-in-out;
+    }
+    
+    .steps-1 .indicator {
+      left: 0;
+      top: 50%;
+      animation: moveRight 3s infinite alternate steps(5, start);
+    }
+    
+    .steps-2 .indicator {
+      right: 0;
+      top: 50%;
+      animation: moveRight 3s infinite alternate steps(5, end);
+    }
+    
+    .ball.linear { animation-timing-function: linear; }
+    .ball.ease { animation-timing-function: ease; }
+    .ball.ease-in { animation-timing-function: ease-in; }
+    .ball.ease-out { animation-timing-function: ease-out; }
+    .ball.ease-in-out { animation-timing-function: ease-in-out; }
+    .ball.steps-1 { animation-timing-function: steps(5, start); }
+    .ball.steps-2 { animation-timing-function: steps(5, end); }
+  </style>
+</head>
+<body>
+  <h1>CSS ANIMATION TIMING FUNCTIONS</h1>
+  
+  <div class="grid">
+    <div class="ball-container">
+      <div class="ball linear">
+        Linear
+        <span class="indicator"></span>
+      </div>
+    </div>
+    
+    <div class="ball-container">
+      <div class="ball ease">
+        Ease
+        <span class="indicator"></span>
+      </div>
+    </div>
+    
+    <div class="ball-container">
+      <div class="ball ease-in">
+        Ease-In
+        <span class="indicator"></span>
+      </div>
+    </div>
+    
+    <div class="ball-container">
+      <div class="ball ease-out">
+        Ease-Out
+        <span class="indicator"></span>
+      </div>
+    </div>
+    
+    <div class="ball-container">
+      <div class="ball ease-in-out">
+        Ease-In-Out
+        <span class="indicator"></span>
+      </div>
+    </div>
+    
+    <div class="ball-container">
+      <div class="ball steps-1">
+        Steps(5, start)
+        <span class="indicator"></span>
+      </div>
+    </div>
+    
+    <div class="ball-container">
+      <div class="ball steps-2">
+        Steps(5, end)
+        <span class="indicator"></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
